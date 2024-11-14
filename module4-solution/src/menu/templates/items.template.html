@@ -1,4 +1,19 @@
-<h2>Dishes for <strong>{{itemsCtrl.items.category}}</strong></h2>
-<ul>
-    <li ng-repeat="item in itemsCtrl.items.menu_items">{{item}}</li>
-</ul>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Dishes for <strong>{{itemsCtrl.items.category.name}}</strong></h1>
+
+    <div class="alert alert-info">
+      <h4 class="alert-heading">Category Details</h4>
+      <p><strong>Name:</strong> {{itemsCtrl.items.category.name}}</p>
+      <p><strong>Special Instructions:</strong> {{itemsCtrl.items.category.special_instructions}}</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4" ng-repeat="item in itemsCtrl.items.menu_items">
+            <div class="alert alert-success">
+                <h5 class="card-title"><strong>Name:</strong> {{item.name}}</h5>
+                <p class="card-text"><strong>Description:</strong> {{item.description}}</p>
+                <p><strong>Large Portion:</strong> {{item.price_large}} USD</p>
+            </div>
+        </div>
+    </div>
+</div>

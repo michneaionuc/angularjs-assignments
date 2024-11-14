@@ -1,0 +1,10 @@
+/* Add a pointer cursor to make it obvious that the list item is clickable */
+.list-group-item-action {
+    cursor: pointer; /* Changes the mouse cursor to a pointer when hovering */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Hover effect to change background color */
+.list-group-item-action:hover {
+    background-color: #f0f0f0; /* Light gray background when hovered */
+}

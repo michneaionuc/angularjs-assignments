@@ -1,6 +1,11 @@
-<ul>
-    Menu categories: 
-    <li ng-repeat="item in categoriesCtrl.categories"
-        ui-sref="items({categoryShortName: item.short_name})">
-    {{item.name}}</li>
-</ul>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Menu Categories:</h2>
+
+    <ul class="list-group">
+        <li ng-repeat="item in categoriesCtrl.categories"
+            ui-sref="items({categoryShortName: item.short_name})"
+            class="list-group-item list-group-item-action">
+            {{item.name}}
+        </li>
+    </ul>
+</div>
