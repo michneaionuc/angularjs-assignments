@@ -1,0 +1,55 @@
+<div class="form-container container">
+  <h1>Sign Up for the Newsletter </h1>
+
+  <form name='regForm' novalidate>
+    <div class="form-column">
+      <label for="fname">First Name</label>
+      <input id="fname" name="firstname" type="text" ng-model="signupCtrl.user.firstName" ng-minlength="3"
+        ng-maxlength="20" required>
+      <span
+        ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+        First name must be at least 3 characters</span>
+      <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+        First name must not be longer tahn 20 characters</span>
+    </div>
+    <div class="form-column">
+      <label for="lname">Last Name</label>
+      <input id="lname" name="lastname" type="text" ng-model="signupCtrl.user.lastName" ng-minlength="3"
+        ng-maxlength="20" required>
+      <span
+        ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+        Last name must be at least 3 characters</span>
+      <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+        Last name must not be longer tahn 20 characters</span>
+    </div>
+    <div class="form-column">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" ng-model="signupCtrl.user.email" required>
+      <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+        Must be a valid email address: handle@domain format
+      </span>
+    </div>
+    <div class="form-column">
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="text" ng-model="signupCtrl.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})"
+        placeholder="###-###-####" required>
+      <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+        Phone must be in the format ###-###-####.
+      </span>
+    </div>
+    <div class="form-column">
+      <label for="favdish">Your Favourite Dish (ex: L1)</label>
+      <input id="favdish" name="favdish" type="text" ng-model="signupCtrl.user.favouriteDish" required>
+      <span ng-if="regForm.firstname.$error.empty && regForm.favdish.$touched">
+        You must tell us your favourite dish.
+      </span>
+      <span ng-if="signupCtrl.noDish">No such menu number exists</span>
+    </div>
+    <div class="form-column">
+      <button ng-disabled="regForm.$invalid" ng-click="signupCtrl.submit()">Sign Up</button>
+    </div>
+    <div ng-if="signupCtrl.noDish === false">
+      <h2>Your information has been saved</h2>
+    </div>
+  </form>
+</div>

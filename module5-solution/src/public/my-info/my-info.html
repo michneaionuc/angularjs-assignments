@@ -1,0 +1,25 @@
+<div ng-if="myInfoCtrl.user === undefined" class="container">
+  <h1>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h1>
+</div>
+
+<div ng-if="myInfoCtrl.user !== undefined" class="container">
+  <h1>Your Information</h1>
+
+  <p><strong>First Name:</strong> {{ myInfoCtrl.user.firstName }}</p>
+  <p><strong>Last Name:</strong> {{ myInfoCtrl.user.lastName }}</p>
+  <p><strong>Email:</strong> {{ myInfoCtrl.user.email }}</p>
+  <p><strong>Phone:</strong> {{ myInfoCtrl.user.phone }}</p>
+
+  <h2>Your Favorite Menu Item</h2>
+
+  <div ng-if="myInfoCtrl.user.favoriteItem">
+    <img
+      ng-src="images/menu/{{myInfoCtrl.user.favoriteItem.short_name[0]}}/{{myInfoCtrl.user.favoriteItem.short_name}}.jpg"
+      alt="{{myInfoCtrl.user.favoriteItem.name}}" width="150" height="100">
+    <p><strong>Title:</strong> {{ myInfoCtrl.user.favoriteItem.name }}</p>
+    <p><strong>Description:</strong> {{ myInfoCtrl.user.favoriteItem.description }}</p>
+  </div>
+  <div ng-if="!myInfoCtrl.user.favoriteItem">
+    <p>No favorite menu item selected.</p>
+  </div>
+</div>
