@@ -7,5 +7,6 @@
   function MyInfoController(UserService) {
     var $ctrl = this;
     $ctrl.user = UserService.user;
+    $ctrl.favouriteDish = UserService.favouriteDish;
   }
 })();

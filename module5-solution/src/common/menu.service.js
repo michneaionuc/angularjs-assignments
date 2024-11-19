@@ -12,8 +12,13 @@
         return response.data;
       });
     };
+    service.getMenuItems = function () {
+      return $http.get(ApiPath + '/menu_items.json').then(function (response) {
+        return response.data;
+      });
+    };
 
-    service.getMenuItems = function (category) {
+    service.getMenuItemsByCategory = function (category) {
       return $http
         .get(ApiPath + '/menu_items/' + category + '.json')
         .then(function (response) {
@@ -21,11 +26,9 @@
         });
     };
 
-    service.getFavouriteItem = function (categoryShortName) {
+    service.getFavouriteItem = function (category, number) {
       return $http
-        .get(
-          `${ApiPath}/menu_items/${categoryShortName[0]}/menu_items/${categoryShortName[1]}.json`
-        )
+        .get(`${ApiPath}/menu_items/${category}/menu_items/${number}.json`)
         .then(function (response) {
           return response.data;
         });

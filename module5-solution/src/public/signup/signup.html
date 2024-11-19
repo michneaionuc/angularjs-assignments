@@ -39,16 +39,17 @@
     </div>
     <div class="form-column">
       <label for="favdish">Your Favourite Dish (ex: L1)</label>
-      <input id="favdish" name="favdish" type="text" ng-model="signupCtrl.user.favouriteDish" required>
-      <span ng-if="regForm.firstname.$error.empty && regForm.favdish.$touched">
+      <input id="favdish" name="favdish" type="text" ng-model="signupCtrl.user.favDishShortName"
+        ng-change="signupCtrl.checkFavoriteItem()" required>
+      <span ng-if=" regForm.firstname.$error.empty && regForm.favdish.$touched">
         You must tell us your favourite dish.
       </span>
-      <span ng-if="signupCtrl.noDish">No such menu number exists</span>
+      <span ng-if="signupCtrl.invalidDish">No such menu number exists</span>
     </div>
     <div class="form-column">
-      <button ng-disabled="regForm.$invalid" ng-click="signupCtrl.submit()">Sign Up</button>
+      <button ng-disabled="regForm.$invalid || signupCtrl.invalidDish" ng-click="signupCtrl.submit()">Sign Up</button>
     </div>
-    <div ng-if="signupCtrl.noDish === false">
+    <div ng-if="!!signupCtrl.informationSaved">
       <h2>Your information has been saved</h2>
     </div>
   </form>

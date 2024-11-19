@@ -42,7 +42,7 @@
             '$stateParams',
             'MenuService',
             function ($stateParams, MenuService) {
-              return MenuService.getMenuItems($stateParams.category);
+              return MenuService.getMenuItemsByCategory($stateParams.category);
             },
           ],
         },

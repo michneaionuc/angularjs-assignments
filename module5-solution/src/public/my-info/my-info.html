@@ -12,14 +12,14 @@
 
   <h2>Your Favorite Menu Item</h2>
 
-  <div ng-if="myInfoCtrl.user.favoriteItem">
+  <div ng-if="myInfoCtrl.user.favouriteItem">
     <img
-      ng-src="images/menu/{{myInfoCtrl.user.favoriteItem.short_name[0]}}/{{myInfoCtrl.user.favoriteItem.short_name}}.jpg"
-      alt="{{myInfoCtrl.user.favoriteItem.name}}" width="150" height="100">
-    <p><strong>Title:</strong> {{ myInfoCtrl.user.favoriteItem.name }}</p>
-    <p><strong>Description:</strong> {{ myInfoCtrl.user.favoriteItem.description }}</p>
+      ng-src="images/menu/{{myInfoCtrl.user.favouriteItem.shortName.category}}/{{myInfoCtrl.user.favouriteItem.shortName.category}}{{myInfoCtrl.user.favouriteItem.shortName.number}}.jpg"
+      alt="{{myInfoCtrl.user.favouriteItem.name}}" width="150" height="100">
+    <p><strong>Title:</strong> {{ myInfoCtrl.user.favouriteItem.name }}</p>
+    <p><strong>Description:</strong> {{ myInfoCtrl.user.favouriteItem.description }}</p>
   </div>
-  <div ng-if="!myInfoCtrl.user.favoriteItem">
+  <div ng-if="!myInfoCtrl.user.favouriteItem">
     <p>No favorite menu item selected.</p>
   </div>
 </div>
